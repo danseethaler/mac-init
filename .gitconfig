@@ -1,0 +1,35 @@
+[core]
+	excludesfile = /Users/danseethaler/.gitignore_global
+	editor = code -w
+[alias]
+	st = status
+	co = checkout
+	last = diff --name-status HEAD^ HEAD
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lgb = log --graph --oneline --decorate --all
+	deletebranches = !git branch | grep -Ev '(master|develop|search-box|prettier-21522)' | xargs git branch -D
+	allamendpush = !git add . && git commit --amend --no-edit && git push -f
+	stagedamendpush = !git commit --amend --no-edit && git push -f
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+    prompt = false
+[user]
+	name = Dan Seethaler
+	email = dan@seethalers.com
+[commit]
+	template = /Users/danseethaler/.stCommitMsg
+[credential]
+	helper = osxkeychain
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

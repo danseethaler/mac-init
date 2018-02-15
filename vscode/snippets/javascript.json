@@ -1,0 +1,92 @@
+{
+  // Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  "Print to console": {
+    "prefix": "lg",
+    "body": ["console.log($1);$2"],
+    "description": "Log output to console"
+  },
+  "Log with message": {
+    "prefix": "lgm",
+    "body": ["console.log('${2:${1:stateUpdate}}', ${1:stateUpdate});$3"],
+    "description": "Log output to console"
+  },
+  "Log with break": {
+    "prefix": "lgb",
+    "body": ["console.log('\\n------------------\\n');$1"],
+    "description": "Log output to console"
+  },
+  "JSON log": {
+    "prefix": "lgj",
+    "body": ["console.log(JSON.stringify(${1:stateUpdate}, null, 4));$2"]
+  },
+  "Fat Arrow": {
+    "prefix": "fat_arrow",
+    "body": ["=>"]
+  },
+  "Arrow Function": {
+    "prefix": "arrow_function",
+    "body": ["($1) => {$2}"]
+  },
+  "Enzyme to Json": {
+    "prefix": "ij",
+    "body": ["import toJson from 'enzyme-to-json';"]
+  },
+  "Expect Enzyme": {
+    "prefix": "snap",
+    "body": ["expect(toJson(${1:wrapper})).toMatchSnapshot();$2"]
+  },
+  "Configure Enzyme": {
+    "prefix": "ce",
+    "body":
+      "// Configure Enzyme\nimport { configure } from 'enzyme';\nimport Adapter from 'enzyme-adapter-react-15';\nconfigure({ adapter: new Adapter() });\n"
+  },
+  "Import React": {
+    "prefix": "ir",
+    "body": ["import React from 'react';", "$2"],
+    "description": "Import React"
+  },
+  "Import React DOM": {
+    "prefix": "ird",
+    "body": ["import ReactDOM from 'react-dom';", "$2"],
+    "description": "Import React DOM"
+  },
+  "Require": {
+    "prefix": "rq",
+    "body": "const ${1:item} = require('./${2:${1:item}}');$3",
+    "description": "Require"
+  },
+  "React Component": {
+    "prefix": "rc",
+    "body":
+      "import React, { Component } from 'react';\n\nclass ${1:Item} extends Component {\n  render() {\n    return <div>${1:hello}</div>;\n   }\n }\n\n export default ${1:Item};",
+    "description": "React Component"
+  },
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body":
+      "import React from 'react';\n\nconst ${1:Item} = ($2) => <div>${1:hello}</div>\n\n export default ${1:Item};",
+    "description": "React Functional Component"
+  },
+  "Redux Connect": {
+    "prefix": "reduxcon",
+    "body":
+      "import { Provider } from 'react-redux' import { createStore } from 'redux' import ${todoApp} from './reducers' import App from './components/App' let store = createStore(${todoApp}) render( <Provider store={store}> <App /> </Provider>, document.getElementById('root') )",
+    "description": "Redux Connect"
+  },
+  "Redux Component": {
+    "prefix": "reduxcom",
+    "body":
+      "const mapStateToProps = state => { return { todos: getVisibleTodos(state.todos, state.visibilityFilter) }; }; const mapDispatchToProps = dispatch => { return { onTodoClick: id => { dispatch(toggleTodo(id)); }, }; }; export default connect(mapStateToProps, mapDispatchToProps)(TodoList);",
+    "description": "Redux Component"
+  },
+  "Background Image CSS": {
+    "prefix": "imagecss",
+    "body":
+      "backgroundImage: `url($1)`,\nbackgroundRepeat: '${2:no-repeat}',\nbackgroundPosition: '${3:center}',\nbackgroundSize: '${4:cover}',",
+    "description": "Backgroun Image Css"
+  }
+}
