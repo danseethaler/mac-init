@@ -17,6 +17,7 @@ run just the way I like it.
 * Terminal Theme - download from http://color.smyck.org/
 * In Terminal.app, Preferences->Settings, select the Keyboard tab. Ensure "Use
   Option Key as Meta" is checked.
+* Increase font size in Preferences to 18pt
 * Add to ~/.bash_profile to make terminal prompt a yellow dollar sign
   * `export PS1="\[\033[33m\]$\[\033[m\]"`
 * Install homebrew
@@ -27,6 +28,8 @@ run just the way I like it.
 * Change the terminal text http://stackoverflow.com/a/26232411/4280755
 * Install Command Lines Tools for IDE (VSCode)
 * `open /Users/danseethaler/Library/Application\ Support/Code/User`
+* Setup git auto-completion
+  * https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
 
 #### Tweak Apps
 

@@ -1,5 +1,6 @@
 {
   "atomKeymap.promptV3Features": true,
+  "diffEditor.ignoreTrimWhitespace": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -10,23 +11,17 @@
   "editor.wordWrap": "on",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/public": false
+  },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.enableSmartCommit": true,
-  "json.schemas": [
-    {
-      "fileMatch": [
-        "/*App.json"
-      ],
-      "url": "./app_schema.json"
-    },
-    {
-      "fileMatch": [
-        "app_schema.json"
-      ],
-      "url": "http://json-schema.org/draft-04/schema#"
-    }
-  ],
   "launch": {
     "version": "0.2.0",
     "configurations": [
@@ -41,40 +36,27 @@
         "request": "launch",
         "name": "Jest Tests",
         "program": "${workspaceRoot}/node_modules/.bin/jest",
-        "args": [
-          "-i"
-        ] // https://facebook.github.io/jest/docs/en/cli.html#runinband
+        "args": ["-i"]
       }
     ]
   },
-  "prettier.trailingComma": "es5",
-  "prettier.semi": false,
-  "prettier.eslintIntegration": true,
-  "prettier.printWidth": 80,
-  "prettier.singleQuote": true,
-  "prettier.tabWidth": 2,
-  "window.newWindowDimensions": "maximized",
-  "window.restoreWindows": "folders",
-  "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "window.zoomLevel": 1,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/public": false
-  },
-  "workbench.colorCustomizations": {},
   "materialTheme.cache.workbench.settings": {
     "themeColours": "Default",
     "accentPrevious": "Cyan"
   },
-  "prettier.proseWrap": true,
   "prettier.bracketSpacing": false,
+  "prettier.eslintIntegration": true,
+  "prettier.printWidth": 80,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  "window.newWindowDimensions": "maximized",
+  "window.openFilesInNewWindow": "on",
+  "window.restoreWindows": "folders",
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "window.zoomLevel": 2,
   "workbench.colorTheme": "Material Theme",
-  "diffEditor.ignoreTrimWhitespace": true,
-  // "workbench.editor.tabSizing": "shrink"
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.startupEditor": "none"
 }
