@@ -30,6 +30,7 @@ run just the way I like it.
 * `open /Users/danseethaler/Library/Application\ Support/Code/User`
 * Setup git auto-completion
   * https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
+  * Seems like the `source ~/git-completion.bash` code may need to go in the `~/.bash_profile` instead of the `.bashrc` file.
 
 #### Tweak Apps
 
