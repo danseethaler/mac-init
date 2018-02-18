@@ -1,0 +1,11 @@
+Equinusocio.vsc-material-theme
+Gruntfuggly.save-without-format
+danseethaler.tab-through-selections
+dbaeumer.vscode-eslint
+dbankier.vscode-quick-select
+esbenp.prettier-vscode
+formulahendry.auto-close-tag
+ms-vscode.atom-keybindings
+msjsdiag.debugger-for-chrome
+paulmolluzzo.convert-css-in-js
+ziyasal.vscode-open-in-github
