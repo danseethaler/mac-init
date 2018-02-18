@@ -1,0 +1,21 @@
+{
+  "name": "mac-init",
+  "version": "1.0.0",
+  "description":
+    "I love to start from scratch when setting up a new computer or device. For most people I think it makes sense to boot a new computer from a backup but as a developer I love diving into all the specific things I do to make my computer run just the way I like it.",
+  "main": "settingsSort.js",
+  "scripts": {
+    "settings": "node ./settingsSortSave.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danseethaler/mac-init.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danseethaler/mac-init/issues"
+  },
+  "homepage": "https://github.com/danseethaler/mac-init#readme"
+}

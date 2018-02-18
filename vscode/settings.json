@@ -36,7 +36,9 @@
         "request": "launch",
         "name": "Jest Tests",
         "program": "${workspaceRoot}/node_modules/.bin/jest",
-        "args": ["-i"]
+        "args": [
+          "-i"
+        ]
       }
     ]
   },
@@ -52,7 +54,7 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "es5",
   "window.newWindowDimensions": "maximized",
-  "window.openFilesInNewWindow": "on",
+  "window.openFoldersInNewWindow": "on",
   "window.restoreWindows": "folders",
   "window.title": "${activeEditorMedium}${separator}${rootName}",
   "window.zoomLevel": 2,

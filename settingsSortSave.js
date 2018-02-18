@@ -15,3 +15,7 @@ Object.keys(userSettings)
   })
 
 fs.writeFileSync(USER_SETTINGS_PATH, JSON.stringify(orderedSettings, null, 2))
+fs.writeFileSync(
+  './vscode/settings.json',
+  JSON.stringify(orderedSettings, null, 2)
+)
