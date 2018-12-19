@@ -7,32 +7,32 @@ run just the way I like it.
 
 ### Advantages
 
-* not pulling over programs or other information that you don’t need
-* Avoiding any mishaps on the sync over from time machine
-* Remember why you do things a certain way
-* It also keeps you open to adopting new technology and ways of doing things
+- not pulling over programs or other information that you don’t need
+- Avoiding any mishaps on the sync over from time machine
+- Remember why you do things a certain way
+- It also keeps you open to adopting new technology and ways of doing things
 
 #### Terminal
 
-* Terminal Theme - download from http://color.smyck.org/
-* In Terminal.app, Preferences->Settings, select the Keyboard tab. Ensure "Use
+- Terminal Theme - download from http://color.smyck.org/
+- In Terminal.app, Preferences->Settings, select the Keyboard tab. Ensure "Use
   Option Key as Meta" is checked.
-* Increase font size in Preferences to 18pt
-* Add to ~/.bash_profile to make terminal prompt a yellow dollar sign
-  * `export PS1="\[\033[33m\]$\[\033[m\]"`
-* Install homebrew
-* Install nodejs (possibly with nvm)
-* Install Chrome
-* Get Atom configurations from the `~/.atom` folder including startup scripts,
+- Increase font size in Preferences to 18pt
+- Add to ~/.bash_profile to make terminal prompt a yellow dollar sign
+  - `export PS1="\[\033[33m\]$\[\033[m\]"`
+- Install homebrew
+- Install nodejs (possibly with nvm)
+- Install Chrome
+- Get Atom configurations from the `~/.atom` folder including startup scripts,
   keymaps, and css
-* Change the terminal text http://stackoverflow.com/a/26232411/4280755
-* Install Command Lines Tools for IDE (VSCode)
-* `open /Users/danseethaler/Library/Application\ Support/Code/User`
-* Setup git auto-completion
-  * https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-  * Seems like the `source ~/git-completion.bash` code may need to go in the `~/.bash_profile` instead of the `.bashrc` file.
+- Change the terminal text http://stackoverflow.com/a/26232411/4280755
+- Install Command Lines Tools for IDE (VSCode)
+- `open /Users/danseethaler/Library/Application\ Support/Code/User`
+- Setup git auto-completion
+  - https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
+  - Seems like the `source ~/git-completion.bash` code may need to go in the `~/.bash_profile` instead of the `.bashrc` file.
 
 #### Tweak Apps
 
-* BetterTouchTool
-* https://pilotmoon.com/scrollreverser/
+- BetterTouchTool
+- https://pilotmoon.com/scrollreverser/
