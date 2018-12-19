@@ -15,6 +15,7 @@ run just the way I like it.
 #### Terminal
 
 - Terminal Theme - download from http://color.smyck.org/
+  - Also consider the Dracula theme https://draculatheme.com/terminal/
 - In Terminal.app, Preferences->Settings, select the Keyboard tab. Ensure "Use
   Option Key as Meta" is checked.
 - Increase font size in Preferences to 18pt
