@@ -31,6 +31,42 @@
     "prefix": "rq",
     "body": "const ${1:item} = require('./${2:${1:item}}');"
   },
+  "React Component": {
+    "prefix": "rc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface Props {",
+      "\t$2",
+      "}",
+      "",
+      "class ${1:Item} extends React.Component<Props> {",
+      "\trender() {",
+      "\t\treturn $3;",
+      "\t}",
+      "}",
+      "",
+      "export default ${1:Item};",
+      ""
+    ]
+  },
+  "Stateless Functional Component": {
+    "prefix": "sfc",
+    "body": [
+      "import React from 'react'",
+      "",
+      "interface Props {",
+      "\t$1",
+      "}",
+      "",
+      "const Item: React.SFC<Props> = () => {",
+      "\t$2",
+      "}",
+      "",
+      "export default Item;",
+      ""
+    ]
+  },
   "Storybook Template": {
     "prefix": "storybook_template",
     "body": [

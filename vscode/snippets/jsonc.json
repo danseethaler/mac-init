@@ -1,0 +1,17 @@
+{
+  "Fat Arrow": {
+    "prefix": "fat_arrow",
+    "body": ["=>"]
+  },
+  "Run Current Programm": {
+    "prefix": "run_current",
+    "body": [
+      "{",
+      "  \"type\": \"node\",",
+      "  \"request\": \"launch\",",
+      "  \"name\": \"Run Current File\",",
+      "  \"program\": \"${file\\}\"",
+      "},"
+    ]
+  }
+}

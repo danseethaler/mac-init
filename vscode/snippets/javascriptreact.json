@@ -1,17 +1,66 @@
 {
-    /*
-	// Place your snippets for JavaScript React here. Each snippet is defined under a snippet name and has a prefix, body and
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
-	// same ids are connected.
-	// Example:
-	"Print to console": {
-		"prefix": "log",
-		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console"
-	}
-*/
+  "Print to console": {
+    "prefix": "lg",
+    "body": "console.log($1);"
+  },
+  "Log with message": {
+    "prefix": "lgm",
+    "body": "console.log('${2:${1:stateUpdate}}', ${1:stateUpdate});"
+  },
+  "Log with break": {
+    "prefix": "lgb",
+    "body": "console.log('\\n------------------\\n');"
+  },
+  "JSON log": {
+    "prefix": "lgj",
+    "body": "console.log(JSON.stringify(${1:stateUpdate}, null, 4));"
+  },
+  "Fat Arrow": {
+    "prefix": "fat_arrow",
+    "body": "=>"
+  },
+  "Arrow Function": {
+    "prefix": "arrow_function",
+    "body": "($1) => {$2}"
+  },
+  "Import React": {
+    "prefix": "ir",
+    "body": "import React from 'react';"
+  },
+  "Require": {
+    "prefix": "rq",
+    "body": "const ${1:item} = require('./${2:${1:item}}');"
+  },
+  "Storybook Template": {
+    "prefix": "storybook_template",
+    "body": [
+      "import {number} from '@storybook/addon-knobs';",
+      "import {withKnobs} from '@storybook/addon-knobs/react';",
+      "import {storiesOf} from '@storybook/react';",
+      "import React from 'react';",
+      "",
+      "storiesOf('Widgets', module)",
+      "\t.addDecorator(withKnobs)",
+      "\t.add('Icons', () => {",
+      "\t\tconst size = number('Size', 24, {",
+      "\t\t\trange: true,",
+      "\t\t\tmin: 12,",
+      "\t\t\tmax: 64,",
+      "\t\t\tstep: 10,",
+      "\t\t});",
+      "",
+      "\t\treturn <div size={size}>Hello</div>;",
+      "\t});",
+      ""
+    ]
+  },
+  "Background Image CSS": {
+    "prefix": "imagecss",
+    "body": [
+      "backgroundImage: `url($1)`,",
+      "backgroundRepeat: '${2:no-repeat}',",
+      "backgroundPosition: '${3:center}',",
+      "backgroundSize: '${4:cover}',"
+    ]
+  }
 }
