@@ -1,64 +1,69 @@
 {
   "atomKeymap.promptV3Features": true,
   "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
+  "editor.gotoLocation.multiple": "goto",
+  "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.scrollBeyondLastLine": false,
   "editor.smoothScrolling": true,
   "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
+  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
     "**/.DS_Store": true,
-    "**/public": false
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.enableSmartCommit": true,
-  "launch": {
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "type": "node",
-        "request": "launch",
-        "name": "Run Current File",
-        "program": "${file}"
-      },
-      {
-        "type": "node",
-        "request": "launch",
-        "name": "Jest Tests",
-        "program": "${workspaceRoot}/node_modules/.bin/jest",
-        "args": [
-          "-i"
-        ]
-      }
-    ]
-  },
-  "materialTheme.cache.workbench.settings": {
-    "themeColours": "Default",
-    "accentPrevious": "Cyan"
-  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.validate.enable": false,
+  "liveshare.featureSet": "insiders",
   "prettier.bracketSpacing": false,
   "prettier.eslintIntegration": true,
-  "prettier.printWidth": 80,
-  "prettier.semi": false,
   "prettier.singleQuote": true,
-  "prettier.tabWidth": 2,
   "prettier.trailingComma": "es5",
+  "sync.gist": "f3359822ab074ea2d92fa7137c92d070",
+  "terminal.integrated.macOptionIsMeta": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.mode": "none",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.newWindowDimensions": "maximized",
   "window.openFoldersInNewWindow": "on",
   "window.restoreWindows": "folders",
   "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "window.zoomLevel": 2,
-  "workbench.colorTheme": "Material Theme",
+  "window.zoomLevel": 1,
+  "workbench.colorCustomizations": {
+    "activityBarBadge.background": "#80CBC4",
+    "editorSuggestWidget.highlightForeground": "#80CBC4",
+    "list.activeSelectionForeground": "#80CBC4",
+    "list.highlightForeground": "#80CBC4",
+    "list.inactiveSelectionForeground": "#80CBC4",
+    "pickerGroup.foreground": "#80CBC4",
+    "progressBar.background": "#80CBC4",
+    "scrollbarSlider.activeBackground": "#80CBC450",
+    "tab.activeBorder": "#80CBC4",
+    "textLink.foreground": "#80CBC4"
+  },
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.startupEditor": "none"
+  "workbench.iconTheme": "eq-material-theme-icons-light",
+  "workbench.list.automaticKeyboardNavigation": false,
+  "workbench.panel.defaultLocation": "right",
+  "workbench.settings.editor": "json",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.feedback.visible": false
 }
