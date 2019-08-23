@@ -12,11 +12,18 @@ run just the way I like it.
 - Remember why you do things a certain way
 - It also keeps you open to adopting new technology and ways of doing things
 
-#### Downloads
+#### Applications
 
+- VS Code
+- Sorted3
+- DayOne
+- Bear
 - Chrome
 - Framer X
 - Adobe CC
+- Sourcetree
+- Postman
+- Insomnia
 
 #### Terminal
 
