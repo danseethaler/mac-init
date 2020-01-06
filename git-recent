@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Source: https://gist.github.com/jordan-brough/48e2803c0ffa6dc2e0bd
+# Original source from: https://gist.github.com/jordan-brough/48e2803c0ffa6dc2e0bd
 
 # Download this script as "git-recent" (no extension), chmod it to be executable and put it in your
 # path somewhere (e.g. /usr/bin). You can then use it via `git recent` from inside any git repo.
@@ -49,12 +49,6 @@ while getopts "hn:le" opt; do
     n) # number of results
       NUM=$OPTARG
       ;;
-    l) # list mode (non-interactive)
-      INTERACTIVE=0
-      ;;
-    e) # validate existence
-      CHECK_EXISTENCE=1
-      ;;
     \?)
       usage
       exit 1
@@ -62,10 +56,8 @@ while getopts "hn:le" opt; do
   esac
 done
 
-NUM=${NUM-10} # default to 10 lines
-INTERACTIVE=${INTERACTIVE-1} # default to interactive
-CHECK_EXISTENCE=${CHECK_EXISTENCE-0} # default to *not* checking existence (faster)
 
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
 BRANCHES=(
   $(git reflog |
     egrep -io "moving from ([^[:space:]]+)" |
@@ -73,21 +65,13 @@ BRANCHES=(
     awk ' !x[$0]++' | # Removes duplicates.  See http://stackoverflow.com/questions/11532157
     egrep -v '^[a-f0-9]{40}$' | # remove hash results
     while read line; do # verify existence
-      ([[ $CHECK_EXISTENCE = '0' ]] || git rev-parse --verify "$line" &>/dev/null) && echo "$line"
-    done |
-    head -n "$NUM"
+      git rev-parse --verify "$line" &>/dev/null && [[ $line != $CURRENT_BRANCH ]] && echo "$line"
+    done
   )
 )
 
-if [[ $INTERACTIVE = '1' ]]; then
-  PS3="Choose a branch: "
+GREEN=$(tput setaf 2)
+normal=$(tput sgr0)
 
-  select d in "${BRANCHES[@]}"; do
-    test -n "$d" && break;
-    echo ">>> Invalid Selection";
-  done
-
-  git checkout "$d"
-else
-  printf '%s\n' "${BRANCHES[@]}"
-fi
+printf "${GREEN}* $CURRENT_BRANCH${normal}\n"
+printf '%s\n' "${BRANCHES[@]}"
