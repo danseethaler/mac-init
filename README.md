@@ -50,3 +50,7 @@ run just the way I like it.
 - BetterTouchTool
 - https://pilotmoon.com/scrollreverser/
 - https://gist.github.com/tonysneed/f9f09bfa28bcf98e8d8306f9b21f99e2#gistcomment-2311154
+
+### Custom git scripts
+
+To enable `git-recent` to run simply change permissions to allow executable with `chmod -x git-recent` then copy it to your `/usr/local/bin` dir with `sudo cp git-recent /usr/local/bin/git-recent`.
