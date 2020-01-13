@@ -2,9 +2,9 @@
 	excludesfile = /Users/danseethaler/.gitignore_global
 	editor = code -w
 [alias]
-	# Output the first shared commit
-	st = !git status && printf '\n' && git branch --sort=-committerdate && printf '\n' && git stash list
+	st = !git status && printf '\n' && git recent && printf '\n' && git stash list
 	co = checkout
+	cob = !gci
 	commitit = commit --amend --no-edit
 	forcepull = !git reset --hard HEAD~5 && git pull
 	# View all changes to the specified file since the current branch
@@ -12,7 +12,6 @@
 	review-merge-file = !sh -c '/Users/danseethaler/Developer/shell_scripts/git_actions.js reviewMergeFile $0 "$@" | sh'
 	# Output the first shared commit
 	first-shared-commit = !sh -c '/Users/danseethaler/Developer/shell_scripts/git_actions.js firstShared $0'
-	# Output the first shared commit
 	search-blame = !sh -c '/Users/danseethaler/Developer/shell_scripts/git_actions.js searchBlame $0'
 	# Rebase from the specified branch or from the most recent shared commit
 	rebase-from-branch = !sh -c 'git rebase -i $(git first-shared-commit $0)'
