@@ -54,3 +54,5 @@ run just the way I like it.
 ### Custom git scripts
 
 To enable `git-recent` to run simply change permissions to allow executable with `chmod -x git-recent` then copy it to your `/usr/local/bin` dir with `sudo cp git-recent /usr/local/bin/git-recent`.
+
+Install `git-checkout-interactive` globally with `npm i -g git-checkout-interactive`
