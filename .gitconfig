@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/danseethaler/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = code -w
 [alias]
 	st = !git status && printf '\n' && git recent && printf '\n' && git stash list
@@ -7,14 +7,9 @@
 	cob = !gci
 	commitit = commit --amend --no-edit
 	forcepull = !git reset --hard HEAD~5 && git pull
-	# View all changes to the specified file since the current branch
-	# and the rebasing branch have diverged
-	review-merge-file = !sh -c '/Users/danseethaler/Developer/shell_scripts/git_actions.js reviewMergeFile $0 "$@" | sh'
-	# Output the first shared commit
-	first-shared-commit = !sh -c '/Users/danseethaler/Developer/shell_scripts/git_actions.js firstShared $0'
-	search-blame = !sh -c '/Users/danseethaler/Developer/shell_scripts/git_actions.js searchBlame $0'
 	# Rebase from the specified branch or from the most recent shared commit
 	rebase-from-branch = !sh -c 'git rebase -i $(git first-shared-commit $0)'
+	rebase-onto = !sh -c 'git rebase --onto=$0 $(git merge-base $0 HEAD)'
 	last = diff --name-status HEAD^ HEAD
 	blow = !git reset --hard && git clean -fd
 	lg = log -10 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -22,8 +17,13 @@
 	lgs = !git lg --shortstat --ignore-space-change
 	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lgb = log --graph --oneline --decorate --all
-	allamendpush = !git add . && git commit --amend --no-edit && git push -f
+	allamendpush = !git add . && git stagedamendpush
 	stagedamendpush = !git commit --amend --no-edit && git push -f
+
+	# Advanced commands that are piped into node script
+	review-merge-file = !sh -c '~/Developer/mac-init/git_actions.js reviewMergeFile $0 "$@" | sh'
+	first-shared-commit = !sh -c '~/Developer/mac-init/git_actions.js firstShared $0'
+	search-blame = !sh -c '~/Developer/mac-init/git_actions.js searchBlame $0'
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]
@@ -33,7 +33,7 @@
 	name = Dan Seethaler
 	email = dan@seethalers.com
 [commit]
-	template = /Users/danseethaler/.stCommitMsg
+	template = ~/.stCommitMsg
 [credential]
 	helper = osxkeychain
 [difftool "sourcetree"]

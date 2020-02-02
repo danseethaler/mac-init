@@ -1,16 +1,13 @@
-# New Computer Setup
+# MacOS Setup
 
-I love to start from scratch when setting up a new computer or device. For most
-people I think it makes sense to boot a new computer from a backup but as a
-developer I love diving into all the specific things I do to make my computer
-run just the way I like it.
+This is a collection of applications, scripts, and configuration I use when setting up a new Mac.
 
-### Advantages
+### Advantages of setting up from scratch
 
 - not pulling over programs or other information that you don’t need
-- Avoiding any mishaps on the sync over from time machine
-- Remember why you do things a certain way
-- It also keeps you open to adopting new technology and ways of doing things
+- avoiding any issues on the sync over from time machine
+- remember why you do things a certain way
+- keeps and open mind to adopting new technology and ways of doing things
 
 #### Applications
 
@@ -53,6 +50,18 @@ run just the way I like it.
 
 ### Custom git scripts
 
-To enable `git-recent` to run simply change permissions to allow executable with `chmod -x git-recent` then copy it to your `/usr/local/bin` dir with `sudo cp git-recent /usr/local/bin/git-recent`.
+The `.gitconfig` file in this project can be used directly by the OS by adding the folowing configuration to `~/.gitconfig`:
+
+```
+[include]
+    path = ~/Developer/mac-init/.gitconfig
+```
+
+To enable `git-recent` command simply:
+
+- change permissions on the `git-recent` file in this local repo by running `chmod -x git-recent`
+- then copy it to your `/usr/local/bin` dir with `sudo cp git-recent /usr/local/bin/git-recent`
 
 Install `git-checkout-interactive` globally with `npm i -g git-checkout-interactive`
+
+Change permission for `.git_actions.js` with `chmod 755 .git_actions.js`
