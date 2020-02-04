@@ -65,3 +65,12 @@ To enable `git-recent` command simply:
 Install `git-checkout-interactive` globally with `npm i -g git-checkout-interactive`
 
 Change permission for `.git_actions.js` with `chmod 755 .git_actions.js`
+
+Add to post-checkout to auto-pull certain branches:
+
+```
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [[ "${BRANCH}" == "develop" || "${BRANCH}" == "master" ]]; then
+  git pull -p
+fi
+```
