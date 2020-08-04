@@ -59,8 +59,8 @@ The `.gitconfig` file in this project can be used directly by the OS by adding t
 
 To enable `git-recent` command simply:
 
-- change permissions on the `git-recent` file in this local repo by running `chmod -x git-recent`
-- then copy it to your `/usr/local/bin` dir with `sudo cp git-recent /usr/local/bin/git-recent`
+- copy the `git-recent` file in this local repo it to your `/usr/local/bin` dir with `sudo cp git-recent /usr/local/bin/git-recent`
+- make the file executable with `sudo chmod 755 /usr/local/bin/git-recent`
 
 Install `git-checkout-interactive` globally with `npm i -g git-checkout-interactive`
 
