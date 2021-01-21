@@ -20,7 +20,7 @@
 	lgb = log --graph --oneline --decorate --all
 	allamendpush = !git add . && git stagedamendpush
 	stagedamendpush = !git commit --amend --no-edit && git push -f
-  rebmaster = !git stash -u && git co master && git pulp && git co - && git rebase master && git stash pop
+	rebmaster = !git co master && git pulp && git co - && git rebase master
 
 	# Advanced commands that are piped into node script
 	review-merge-file = !sh -c '~/Developer/mac-init/git_actions.js reviewMergeFile $0 "$@" | sh'
