@@ -7,7 +7,7 @@
 	pulp = pull -p
 	cob = !gci
 	commitit = commit --amend --no-edit
-	forcepull = !git reset --hard HEAD~5 && git pull
+	forcepull = !git reset --hard HEAD~20 && git pull
 	# Rebase from the specified branch or from the most recent shared commit
 	rebase-from-branch = !sh -c 'git rebase -i $(git first-shared-commit $0)'
 	rebase-onto = !sh -c 'git rebase --onto=$0 $(git merge-base $0 HEAD)'
