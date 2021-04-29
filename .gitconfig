@@ -4,7 +4,7 @@
 [alias]
 	st = !git status && printf '\n' && git recent && printf '\n' && git stash list
 	co = checkout
-	pulp = pull -p
+	pulp = pull -p --ff-only
 	cob = !gci
 	commitit = commit --amend --no-edit
 	forcepull = !git reset --hard HEAD~20 && git pull
