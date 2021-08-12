@@ -30,6 +30,7 @@
 	review-merge-file = !sh -c '~/Developer/mac-init/git_actions.js reviewMergeFile $0 "$@" | sh'
 	first-shared-commit = !sh -c '~/Developer/mac-init/git_actions.js firstShared $0'
 	search-blame = !sh -c '~/Developer/mac-init/git_actions.js searchBlame $0'
+	delete-merged-branches = !sh -c '~/Developer/mac-init/git_actions.js deleteMergedBranches $0'
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]
