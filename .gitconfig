@@ -31,6 +31,7 @@
 	first-shared-commit = !sh -c '~/Developer/mac-init/git_actions.js firstShared $0'
 	search-blame = !sh -c '~/Developer/mac-init/git_actions.js searchBlame $0'
 	delete-merged-branches = !sh -c '~/Developer/mac-init/git_actions.js deleteMergedBranches $0'
+	pushy = !sh -c '~/Developer/mac-init/git_actions.js pushNewBranch $0'
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]

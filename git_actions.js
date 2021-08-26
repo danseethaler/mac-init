@@ -56,6 +56,29 @@ const commands = {
     );
   },
 
+  pushNewBranch: () => {
+    exec("git changes");
+
+    exec(`git symbolic-ref --short HEAD`, (err, res) => {
+      if (err) throw err;
+
+      const branch = res.trim();
+
+      exec(`git push -u origin ${branch} --no-verify`, (err) => {
+        if (err) throw err;
+
+        exec(`git push`, (err) => {
+          if (err) throw err;
+
+          return process.stdout.write(`Pushy push complete.\n`);
+        });
+        return process.stdout.write(`Pushed branch ${branch}\n`);
+      });
+
+      return process.stdout.write(`Pushing ${branch}\n`);
+    });
+  },
+
   deleteMergedBranches: (masterBranch) => {
     masterBranch = masterBranch === "sh" ? "master" : masterBranch;
     process.stdout.write(`${masterBranch} is master\n`);
