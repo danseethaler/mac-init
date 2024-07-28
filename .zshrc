@@ -7,6 +7,9 @@ zstyle ':completion:*:*:git:*' script ~/git-completion.bash
 fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 PS1='%F{blue}__%1d__%f'
 
 ###-begin-npm-completion-###
@@ -64,3 +67,61 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/danseethaler/Developer/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/danseethaler/Developer/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/danseethaler/Developer/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/danseethaler/Developer/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias backupFirestoreUsers='gcloud firestore export gs://weekly_firestore_backup --collection-ids=users'
+alias backupFirestoreFeedback='gcloud firestore export gs://weekly_firestore_backup --collection-ids=feedback'
+alias backupFirestoreSubscriptions='gcloud firestore export gs://weekly_firestore_backup --collection-ids=subscriptions'
+alias backupFirestoreSyncCreditPurchases='gcloud firestore export gs://weekly_firestore_backup --collection-ids=syncCreditPurchases'
+alias backupFirestoreSyncLogs='gcloud firestore export gs://weekly_firestore_backup --collection-ids=syncLogs'
+alias backupFirestore='gcloud firestore export gs://weekly_firestore_backup --collection-ids=accounts,funds,institutions,itemLookups,items,plaidTransactions,syncCreditPurchases,subscriptions,transactions,users,weekInstances'
+alias backupFirestoreAllCollections='gcloud firestore export gs://weekly_firestore_backup --collection-ids=accounts,adminDocuments,analytics,dailyBalances,funds,institutions,itemLookups,items,linkTokenRequests,newsletter_emails,plaidTransactions,syncCreditPurchases,recentNotifications,subscriptions,transactions,users,weekConfigs,weekInstances'
+
+alias loadFirestoreToBigQueryUsers='
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_users_table $FOLDER/all_namespaces/kind_users/all_namespaces_kind_users.export_metadata
+'
+
+alias loadFirestoreToBigQueryFeedback='
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_feedback_table $FOLDER/all_namespaces/kind_feedback/all_namespaces_kind_feedback.export_metadata
+'
+
+alias loadFirestoreToBigQuerySubscriptions='
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_subscriptions_table $FOLDER/all_namespaces/kind_subscriptions/all_namespaces_kind_subscriptions.export_metadata
+'
+
+alias loadFirestoreToBigQuerySyncCreditPurchases='
+bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_syncCreditPurchases_table $FOLDER/all_namespaces/kind_syncCreditPurchases/all_namespaces_kind_syncCreditPurchases.export_metadata
+'
+
+alias loadFirestoreToBigQuerySyncLogs='
+bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_syncLogs_table $FOLDER/all_namespaces/kind_syncLogs/all_namespaces_kind_syncLogs.export_metadata
+'
+
+alias loadFirestoreToBigQueryAccounts='
+bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_accounts_table $FOLDER/all_namespaces/kind_accounts/all_namespaces_kind_accounts.export_metadata
+'
+
+alias loadFirestoreToBigQueryTxs='
+bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_transactions_table $FOLDER/all_namespaces/kind_transactions/all_namespaces_kind_transactions.export_metadata
+'
+
+alias loadFirestoreToBigQuery='
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_users_table $FOLDER/all_namespaces/kind_users/all_namespaces_kind_users.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_weekInstances_table $FOLDER/all_namespaces/kind_weekInstances/all_namespaces_kind_weekInstances.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_transactions_table $FOLDER/all_namespaces/kind_transactions/all_namespaces_kind_transactions.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_subscriptions_table $FOLDER/all_namespaces/kind_subscriptions/all_namespaces_kind_subscriptions.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_funds_table $FOLDER/all_namespaces/kind_funds/all_namespaces_kind_funds.export_metadata &&®
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_institutions_table $FOLDER/all_namespaces/kind_institutions/all_namespaces_kind_institutions.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_plaidTransactions_table $FOLDER/all_namespaces/kind_plaidTransactions/all_namespaces_kind_plaidTransactions.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_syncCreditPurchases_table $FOLDER/all_namespaces/kind_syncCreditPurchases/all_namespaces_kind_syncCreditPurchases.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_accounts_table $FOLDER/all_namespaces/kind_accounts/all_namespaces_kind_accounts.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_items_table $FOLDER/all_namespaces/kind_items/all_namespaces_kind_items.export_metadata &&
+  bq load --project_id=weekly-6f36c --replace --source_format=DATASTORE_BACKUP weekly_backups_dataset.weekly_itemLookups_table $FOLDER/all_namespaces/kind_itemLookups/all_namespaces_kind_itemLookups.export_metadata
+'
+
+alias src='source ~/.zshrc'
