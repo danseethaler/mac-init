@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const exec = require("child_process").exec;
+const exec = require('child_process').exec;
 const args = process.argv.slice(2);
 
 const commands = {
@@ -13,7 +13,7 @@ const commands = {
         if (err) throw err;
 
         const matches = res.match(
-          /You are currently rebasing branch '([^']*)'/
+          /You are currently rebasing branch '([^']*)'/,
         );
         if (!matches) {
           process.stdout.write('echo "Not currently rebasing"');
@@ -23,14 +23,14 @@ const commands = {
         const finalCommand = `git log -p $(git merge-base ${matches[1]} HEAD)..HEAD ${file}`;
 
         process.stdout.write(finalCommand);
-      }
+      },
     );
   },
 
   // View all changes to the specified file since the current branch and the
   // rebasing branch have diverged
   reviewMergeFile: (file) => {
-    exec("git status", (err, res) => {
+    exec('git status', (err, res) => {
       if (err) throw err;
 
       const matches = res.match(/You are currently rebasing branch '([^']*)'/);
@@ -50,14 +50,14 @@ const commands = {
       `git grep -n "${searchTerm}" | while IFS=: read i j k; do git blame -f -L $j,$j $i; done`,
       (err, res) => {
         if (err) throw err;
-        const formattedResponse = `* ${res.split("\n").join(`\n* `)}`;
+        const formattedResponse = `* ${res.split('\n').join(`\n* `)}`;
         return process.stdout.write(formattedResponse);
-      }
+      },
     );
   },
 
   pushNewBranch: () => {
-    exec("git changes");
+    exec('git changes');
 
     exec(`git symbolic-ref --short HEAD`, (err, res) => {
       if (err) throw err;
@@ -80,11 +80,11 @@ const commands = {
   },
 
   deleteMergedBranches: (masterBranch) => {
-    masterBranch = masterBranch === "sh" ? "master" : masterBranch;
+    masterBranch = masterBranch === 'sh' ? 'master' : masterBranch;
     process.stdout.write(`${masterBranch} is master\n`);
     exec(`git branch`, async (err, res) => {
       if (err) throw err;
-      const branches = res.split("\n");
+      const branches = res.split('\n');
 
       let deletedBranches = 0;
 
@@ -98,7 +98,7 @@ const commands = {
               return;
             }
 
-            if (branch.indexOf("*") >= 0) {
+            if (branch.indexOf('*') >= 0) {
               process.stdout.write(`Skipping active branch ${branch}\n`);
               resolve();
             } else {
@@ -116,11 +116,11 @@ const commands = {
                   } else {
                     resolve();
                   }
-                }
+                },
               );
             }
           });
-        })
+        }),
       );
 
       return process.stdout.write(`Deleted ${deletedBranches} branches\n`);
@@ -128,7 +128,7 @@ const commands = {
   },
 };
 
-if (typeof commands[args[0]] === "function") {
+if (typeof commands[args[0]] === 'function') {
   const [functionName, ...rest] = args;
   commands[functionName](...rest);
 }
