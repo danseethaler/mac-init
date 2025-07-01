@@ -26,6 +26,8 @@
 	# { cat; echo; } adds a new line to last line so tail -r doesn't combine the last two lines
 	changes = "!git log master.. --pretty=format:%s | sed 's/^/- /' | { cat; echo; } | tail -r | pbcopy"
 	peek = "!git merge --no-commit --no-ff $1"
+	delete-gone-branches = "!sh -c 'git branch -vv | awk \"/: gone]/{print \\$1}\" | xargs -r git branch -D'"
+	show-gone-branches = "!sh -c 'git branch -vv | awk \"/: gone]/{print \\$1}\"'"
 
 	# Advanced commands that are piped into node script
 	review-merge-file = !sh -c '~/Developer/mac-init/git_actions.js reviewMergeFile $0 "$@" | sh'
